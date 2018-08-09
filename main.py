@@ -6,7 +6,7 @@ from google.appengine.api import app_identity
 from google.cloud import logging
 
 client = logging.Client()
-logger = client.logger('Echolog')
+logger = client.logger('echolog')
 
 _FIREBASE_SCOPES = [
 	'https://www.googleapis.com/auth/firebase.database',

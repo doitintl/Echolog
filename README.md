@@ -18,6 +18,7 @@ Make sure you have the [Google Cloud SDK](https://cloud.google.com/sdk/) install
 
 ### Authentication
 * Create a project in the [Firebase console](https://firebase.google.com/console)
+	* Enable the Google sign-in provider in the Authentication > SIGN-IN METHOD tab.
 * For running the sample locally, you'll need to download a service account to provide credentials that would normally be provided automatically in the App Engine environment. Click the gear icon in the Firebase Console and select 'Permissions'; then go to the 'Service accounts' tab. Download a new or existing App Engine service account credentials file. Then set the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to the path to this file:
 
 		export GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json
@@ -43,7 +44,7 @@ gcloud app deploy app.yaml dispatch.yaml
 ```
 
 ### Viewing the logs
-All the payload logs are under Global resources in the Echolog logs.
+All the payload logs are under "Global" resources in the "echolog" logs.
 
 ### Notes:
 Due to [Google's Stackdriver pricing policy](https://cloud.google.com/stackdriver/pricing_v2) you might want to create a separate project for this tool and enable Stackdriver only on this project.
