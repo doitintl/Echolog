@@ -6,6 +6,12 @@ service: echolog
 handlers:
 - url: /echolog
   script: main.app
+- url: /echolog/ui
+  static_files: ui/index.html
+  upload: ui/index.html
+- url: /echolog/ui/(.*)$
+  static_files: ui/\1
+  upload: ui/\1
 
 libraries:
 - name: ssl

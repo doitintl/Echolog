@@ -19,6 +19,7 @@ Make sure you have the [Google Cloud SDK](https://cloud.google.com/sdk/) install
 ### Authentication
 * Create a project in the [Firebase console](https://firebase.google.com/console)
 	* Enable the Google sign-in provider in the Authentication > SIGN-IN METHOD tab.
+	* From the project overview page click on the "Add Firebase to your web app" and copy the code in the splash screen. Paste this code into the index.html file under the ui folder into the "YOUR FIREBASE CODE SNIPPET" section.
 * For running the sample locally, you'll need to download a service account to provide credentials that would normally be provided automatically in the App Engine environment. Click the gear icon in the Firebase Console and select 'Permissions'; then go to the 'Service accounts' tab. Download a new or existing App Engine service account credentials file. Then set the environment variable `GOOGLE_APPLICATION_CREDENTIALS` to the path to this file:
 
 		export GOOGLE_APPLICATION_CREDENTIALS=/path/to/credentials.json

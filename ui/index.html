@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="echoLog Last entry in Firebase DB">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>echoLog Last entry</title>
+
+		<!-- Disable tap highlight on IE -->
+		<meta name="msapplication-tap-highlight" content="no">
+
+		<!-- Add to homescreen for Chrome on Android -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="application-name" content="echoLog Last entry">
+		<meta name="theme-color" content="#303F9F">
+
+		<!-- Add to homescreen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-title" content="echoLog Last entry">
+		<meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+		<!-- Tile icon for Win8 -->
+		<meta name="msapplication-TileColor" content="#3372DF">
+		<meta name="msapplication-navbutton-color" content="#303F9F">
+
+		<!-- Material Design Lite -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.blue_grey-orange.min.css">
+		<script src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="ui/main.css" />
+	</head>
+	<body>
+		<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+			<!-- Splash screen -->
+			<section id="page-splash">
+				<h3 class="logo">echoLog Last entry</h3>
+				<div>
+					<button id="sign-in-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign in with Google</button>
+				</div>
+			</section>
+
+			<!-- Header section containing logo and menu -->
+			<header class="header mdl-layout__header mdl-color-text--white mdl-color--light-blue-700">
+				<div class="mdl-layout__header-row titlebar">
+					<h3 class="logo">echoLog Last entry</h3>
+					<button id="sign-out-button" class="mdl-button--raised mdl-button mdl-js-button mdl-js-ripple-effect"><i class="material-icons">account_circle</i> Sign out</button>
+				</div>
+				<!-- Navigation Bar -->
+				<div class="tab mdl-layout__header-row mdl-color--light-blue-600">
+					<div class="mdl-tab">
+						<div id="menu-recent" class="mdl-layout__tab is-active mdl-button mdl-js-button mdl-js-ripple-effect">
+							<i class="material-icons">new_releases</i> Recent
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<main class="mdl-layout__content mdl-color--grey-100">
+				<!-- Show a list of recent payloads -->
+				<section class="mdl-grid content" id="payloads-section" style="display:none">
+					<div>
+						<span class="json-title">Payload (JSON):</span>
+						<pre class="json-value" id="json-value">...</pre>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-database.js"></script>
+
+		<!-- YOUR FIREBASE CODE SNIPPET START -->
+
+		<!-- YOUR FIREBASE CODE SNIPPET END-->
+
+		<script src="ui/main.js"></script>
+	</body>
+</html>
