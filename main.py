@@ -1,9 +1,12 @@
 import json
 import webapp2
-import logging
 import httplib2
 from oauth2client.client import GoogleCredentials
 from google.appengine.api import app_identity
+from google.cloud import logging
+
+client = logging.Client()
+logger = client.logger('Echolog')
 
 _FIREBASE_SCOPES = [
 	'https://www.googleapis.com/auth/firebase.database',
@@ -31,7 +34,7 @@ class Echolog(webapp2.RequestHandler):
 
 	def post(self):
 		# Write to stackdriver
-		logging.info(self.request.body)
+		logger.log_text(self.request.body, severity="INFO")
 
 		# Write to Firebase
 		firebase_put(object_json_url, value=self.request.body)

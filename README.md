@@ -42,5 +42,8 @@ To deploy your version into your project run:
 gcloud app deploy app.yaml dispatch.yaml
 ```
 
+### Viewing the logs
+All the payload logs are under Global resources in the Echolog logs.
+
 ### Notes:
 Due to [Google's Stackdriver pricing policy](https://cloud.google.com/stackdriver/pricing_v2) you might want to create a separate project for this tool and enable Stackdriver only on this project.
