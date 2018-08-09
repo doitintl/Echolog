@@ -7,11 +7,10 @@ handlers:
 - url: /echolog
   script: main.app
 - url: /echolog/ui
-  static_files: ui/index.html
-  upload: ui/index.html
-- url: /echolog/ui/(.*)$
-  static_files: ui/\1
-  upload: ui/\1
+  static_files: static/index.html
+  upload: static/index.html
+- url: /echolog/static
+  static_dir: static
 
 libraries:
 - name: ssl
