@@ -1,7 +1,7 @@
 # Echolog
 
 ## General
-There are cases in which you want to better understand which requests you are getting from 3rd party systems and what is the payload which come with it.
+There are cases in which you want to better understand which requests you are getting from 3rd party systems and what is the payload which comes with it..
 
 While you can find some great tools out there which allow you to see the payload of a single request, getting heavy traffic to these tools might become challenging.
 
