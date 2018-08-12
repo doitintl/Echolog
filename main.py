@@ -23,8 +23,12 @@ def _get_http():
 	return http
 
 
-def firebase_put(path, value=None):
-	response, content = _get_http().request(path, method='PUT', body=value)
+def firebase_update(path, value=None):
+	if value:
+		response, content = _get_http().request(path, method='PUT', body=value)
+	else:
+		response, content = _get_http().request(path, method='DELETE')
+
 	return json.loads(content)
 
 
@@ -37,8 +41,8 @@ class Echolog(webapp2.RequestHandler):
 		logger.log_text(self.request.body, severity="INFO")
 
 		# Write to Firebase
-		firebase_put(object_json_url, value=self.request.body)
-		firebase_put(object_string_url, value=json.dumps(self.request.body))
+		firebase_update(object_json_url, value=self.request.body)
+		firebase_update(object_string_url, value=json.dumps(self.request.body))
 
 
 app = webapp2.WSGIApplication([('/echolog', Echolog), ], debug=True)
