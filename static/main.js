@@ -5,9 +5,7 @@ var signInButton = document.getElementById('sign-in-button');
 var signOutButton = document.getElementById('sign-out-button');
 var splashPage = document.getElementById('page-splash');
 var payloadsection = document.getElementById('payloads-section');
-var recentMenuButton = document.getElementById('menu-recent');
 var listeningFirebaseRefs = [];
-
 
 /**
 * Cleanups the UI and removes all Firebase listeners.
@@ -75,15 +73,11 @@ function startDatabaseQueries() {
 /**
 * Displays the given section element and changes styling of the given button.
 */
-function showSection(sectionElement, buttonElement) {
+function showSection(sectionElement) {
 	payloadsection.style.display = 'none';
-	recentMenuButton.classList.remove('is-active');
 
 	if (sectionElement) {
 		sectionElement.style.display = 'block';
-	}
-	if (buttonElement) {
-		buttonElement.classList.add('is-active');
 	}
 }
 
@@ -103,9 +97,5 @@ window.addEventListener('load', function() {
 	// Listen for auth state changes
 	firebase.auth().onAuthStateChanged(onAuthStateChanged);
 
-	// Bind menu buttons.
-	recentMenuButton.onclick = function() {
-		showSection(payloadsection, recentMenuButton);
-	};
-	recentMenuButton.onclick();
+	showSection(payloadsection);
 }, false);
