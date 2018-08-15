@@ -24,10 +24,14 @@ def _get_http():
 
 
 def firebase_update(path, value=None):
-	if value:
-		response, content = _get_http().request(path, method='PUT', body=value)
-	else:
-		response, content = _get_http().request(path, method='DELETE')
+	try:
+		if value:
+			response, content = _get_http().request(path, method='PUT', body=value)
+		else:
+			response, content = _get_http().request(path, method='DELETE')
+	except Exception as e:
+		logger.log_text(e)
+		content = '{}'
 
 	return json.loads(content)
 
@@ -37,12 +41,15 @@ class Echolog(webapp2.RequestHandler):
 		self.post()
 
 	def post(self):
-		# Write to stackdriver
-		logger.log_text(self.request.body, severity="INFO")
+		try:
+			# Write to stackdriver
+			logger.log_text(self.request.body, severity="INFO")
 
-		# Write to Firebase
-		firebase_update(object_json_url, value=self.request.body)
-		firebase_update(object_string_url, value=json.dumps(self.request.body))
+			# Write to Firebase
+			firebase_update(object_json_url, value=self.request.body)
+			firebase_update(object_string_url, value=json.dumps(self.request.body))
+		except Exception as e:
+			logger.log_text(e)
 
 
 app = webapp2.WSGIApplication([('/echolog', Echolog), ], debug=True)
